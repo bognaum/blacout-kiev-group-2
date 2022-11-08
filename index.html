@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="--UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		table {
+		  counter-reset: trn trn-0 trn-1 trn-2 trn-3 trn-4 trn-5;
+		}
+		table .trn,
+		table .trn-0,
+		table .trn-1,
+		table .trn-2,
+		table .trn-3,
+		table .trn-4,
+		table .trn-5 {
+		  text-align: center;
+		}
+		table .trn:before,
+		table .trn-0:before,
+		table .trn-1:before,
+		table .trn-2:before,
+		table .trn-3:before,
+		table .trn-4:before,
+		table .trn-5:before {
+		  display: inline-block;
+		}
+		table .trn:before {
+		  content: counter(trn);
+		  counter-increment: trn;
+		}
+		table .trn-0:before {
+		  content: counter(trn-0);
+		  counter-increment: trn-0;
+		}
+		table .trn-1:before {
+		  content: counter(trn-1);
+		  counter-increment: trn-1;
+		}
+		table .trn-2:before {
+		  content: counter(trn-2);
+		  counter-increment: trn-2;
+		}
+		table .trn-3:before {
+		  content: counter(trn-3);
+		  counter-increment: trn-3;
+		}
+		table .trn-4:before {
+		  content: counter(trn-4);
+		  counter-increment: trn-4;
+		}
+		table .trn-5:before {
+		  content: counter(trn-5);
+		  counter-increment: trn-5;
+		}
+		table .ta-l {
+		  text-align: left;
+		}
+		table .ta-c {
+		  text-align: center;
+		}
+		table .ta-r {
+		  text-align: right;
+		}
+		
+		table.fun-descr {
+		  border-collapse: collapse;
+		  text-align: center;
+		}
+		table.fun-descr th,
+		table.fun-descr td {
+		  border: 1px solid #ddd;
+		  padding: 3px 10px;
+		}
+		table.fun-descr th {
+		  color: #aaa;
+		  background-color: #ddd;
+		}
+		table.fun-descr td:nth-last-child(1) {
+		  text-align: left;
+		}
+		table.fun-descr ol,
+		table.fun-descr ul {
+		  text-align: left;
+		}
+		table.fun-descr ul {
+		  list-style-type: "- ";
+		}
+		table.fun-descr details summary {
+		  display: inline-block;
+		  cursor: pointer;
+		  border: 1px solid #aaa;
+		  box-shadow: inset 0 0 10px #aaa;
+		  margin: 5px 0;
+		}
+		table.fun-descr details summary:after {
+		  content: " ‧ ‧ ‧ ";
+		}
+	</style>
+	<style>
+		table {
+			margin: auto;
+		}
+		td {
+			/* background-color: #eee; */
+		}
+		td.on, td.off {}
+		td.on {}
+		td.off {
+			/* background: repeating-linear-gradient(135deg, #ddd  0, #ddd 10px, transparent 10px, transparent 20px); */
+			box-shadow: inset 0 0 20px #aaa;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<table border="" cellpadding="5" cellspacing="0">
+		<tbody>
+			<tr>
+				<td class="ta-c" colspan="26">
+					<p>Киев. Группа - 2</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"></td>
+				<td>00</td>
+				<td>01</td>
+				<td>02</td>
+				<td>03</td>
+				<td>04</td>
+				<td>05</td>
+				<td>06</td>
+				<td>07</td>
+				<td>08</td>
+				<td>09</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+				<td>16</td>
+				<td>17</td>
+				<td>18</td>
+				<td>19</td>
+				<td>20</td>
+				<td>21</td>
+				<td>22</td>
+				<td>23</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Понедельник</td>
+				<td class="ta-c off" colspan="1">...1</td>
+				<td class="ta-c on"  colspan="2">1...3</td>
+				<td class="ta-c off" colspan="4">3...7</td>
+				<td class="ta-c on"  colspan="5">7...12</td>
+				<td class="ta-c off" colspan="4">12...16</td>
+				<td class="ta-c on"  colspan="5">16...21</td>
+				<td class="ta-c off" colspan="3">21...</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Вторник</td>
+				<td class="ta-c off" colspan="1">...1</td>
+				<td class="ta-c on"  colspan="5">1...6</td>
+				<td class="ta-c off" colspan="4">6...10</td>
+				<td class="ta-c on"  colspan="5">10...15</td>
+				<td class="ta-c off" colspan="4">15...19</td>
+				<td class="ta-c on"  colspan="5">19...24</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Среда</td>
+				<td class="ta-c off" colspan="4">0...4</td>
+				<td class="ta-c on"  colspan="5">4...9</td>
+				<td class="ta-c off" colspan="4">9...13</td>
+				<td class="ta-c on"  colspan="5">13...18</td>
+				<td class="ta-c off" colspan="4">18...22</td>
+				<td class="ta-c on"  colspan="2">22...</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Четверг</td>
+				<td class="ta-c on"  colspan="3">1...3</td>
+				<td class="ta-c off" colspan="4">3...7</td>
+				<td class="ta-c on"  colspan="5">7...12</td>
+				<td class="ta-c off" colspan="4">12...16</td>
+				<td class="ta-c on"  colspan="5">16...21</td>
+				<td class="ta-c off" colspan="3">21...</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Пятница</td>
+				<td class="ta-c off" colspan="1">...1</td>
+				<td class="ta-c on"  colspan="5">1...6</td>
+				<td class="ta-c off" colspan="4">6...10</td>
+				<td class="ta-c on"  colspan="5">10...15</td>
+				<td class="ta-c off" colspan="4">15...19</td>
+				<td class="ta-c on"  colspan="5">19...24</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Суббота</td>
+				<td class="ta-c off" colspan="4">0...4</td>
+				<td class="ta-c on"  colspan="5">4...9</td>
+				<td class="ta-c off" colspan="4">9...13</td>
+				<td class="ta-c on"  colspan="5">13...18</td>
+				<td class="ta-c off" colspan="4">18...22</td>
+				<td class="ta-c on"  colspan="2">22...</td>
+			</tr>
+			<tr>
+				<td class="trn"></td>
+				<td class="ta-r">Воскресенье</td>
+				<td class="ta-c on"  colspan="3">1...3</td>
+				<td class="ta-c off" colspan="4">3...7</td>
+				<td class="ta-c on"  colspan="5">7...12</td>
+				<td class="ta-c off" colspan="4">12...16</td>
+				<td class="ta-c on"  colspan="5">16...21</td>
+				<td class="ta-c off" colspan="3">21...</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
