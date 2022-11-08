@@ -111,7 +111,7 @@
 		}
 		td.on, td.off {}
 		td.on {}
-		td.off {
+		td[data-state="off"] {
 			/* background: repeating-linear-gradient(135deg, #ddd  0, #ddd 10px, transparent 10px, transparent 20px); */
 			box-shadow: inset 0 0 20px #aaa;
 		}
@@ -156,77 +156,101 @@
 			<tr data-week-day="1">
 				<td class="trn"></td>
 				<td class="ta-r">Понедельник</td>
-				<td class="ta-c off" colspan="1" data-from-to="[0,1  ]">...1</td>
-				<td class="ta-c on"  colspan="2" data-from-to="[1,3  ]">1...3</td>
-				<td class="ta-c off" colspan="4" data-from-to="[3,7  ]">3...7</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[7,12 ]">7...12</td>
-				<td class="ta-c off" colspan="4" data-from-to="[12,16]">12...16</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[16,21]">16...21</td>
-				<td class="ta-c off" colspan="3" data-from-to="[21,24]">21...</td>
+				<td class="ta-c" data-state="off" data-from-to="[0,1  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[1,3  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[3,7  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[7,12 ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[12,16]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[16,21]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[21,24]"></td>
 			</tr>
 			<tr data-week-day="2">
 				<td class="trn"></td>
 				<td class="ta-r">Вторник</td>
-				<td class="ta-c off" colspan="1" data-from-to="[0,1  ]">...1</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[1,6  ]">1...6</td>
-				<td class="ta-c off" colspan="4" data-from-to="[6,10 ]">6...10</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[10,15]">10...15</td>
-				<td class="ta-c off" colspan="4" data-from-to="[15,19]">15...19</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[19,24]">19...24</td>
+				<td class="ta-c" data-state="off" data-from-to="[0,1  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[1,6  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[6,10 ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[10,15]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[15,19]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[19,24]"></td>
 			</tr>
 			<tr data-week-day="3">
 				<td class="trn"></td>
 				<td class="ta-r">Среда</td>
-				<td class="ta-c off" colspan="4" data-from-to="[0,4  ]">0...4</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[4,9  ]">4...9</td>
-				<td class="ta-c off" colspan="4" data-from-to="[9,13 ]">9...13</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[13,18]">13...18</td>
-				<td class="ta-c off" colspan="4" data-from-to="[18,22]">18...22</td>
-				<td class="ta-c on"  colspan="2" data-from-to="[22,24]">22...</td>
+				<td class="ta-c" data-state="off" data-from-to="[0,4  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[4,9  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[9,13 ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[13,18]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[18,22]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[22,24]"></td>
 			</tr>
 			<tr data-week-day="4">
 				<td class="trn"></td>
 				<td class="ta-r">Четверг</td>
-				<td class="ta-c on"  colspan="3" data-from-to="[0,3  ]">...3</td>
-				<td class="ta-c off" colspan="4" data-from-to="[3,7  ]">3...7</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[7,12 ]">7...12</td>
-				<td class="ta-c off" colspan="4" data-from-to="[12,16]">12...16</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[16,21]">16...21</td>
-				<td class="ta-c off" colspan="3" data-from-to="[21,24]">21...</td>
+				<td class="ta-c" data-state="on"  data-from-to="[0,3  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[3,7  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[7,12 ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[12,16]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[16,21]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[21,24]"></td>
 			</tr>
 			<tr data-week-day="5">
 				<td class="trn"></td>
 				<td class="ta-r">Пятница</td>
-				<td class="ta-c off" colspan="1" data-from-to="[0,1  ]">...1</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[1,6  ]">1...6</td>
-				<td class="ta-c off" colspan="4" data-from-to="[6,10 ]">6...10</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[10,15]">10...15</td>
-				<td class="ta-c off" colspan="4" data-from-to="[15,19]">15...19</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[19,24]">19...24</td>
+				<td class="ta-c" data-state="off" data-from-to="[0,1  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[1,6  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[6,10 ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[10,15]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[15,19]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[19,24]"></td>
 			</tr>
 			<tr data-week-day="6">
 				<td class="trn"></td>
 				<td class="ta-r">Суббота</td>
-				<td class="ta-c off" colspan="4" data-from-to="[0,4  ]">0...4</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[4,9  ]">4...9</td>
-				<td class="ta-c off" colspan="4" data-from-to="[9,13 ]">9...13</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[13,18]">13...18</td>
-				<td class="ta-c off" colspan="4" data-from-to="[18,22]">18...22</td>
-				<td class="ta-c on"  colspan="2" data-from-to="[22,24]">22...</td>
+				<td class="ta-c" data-state="off" data-from-to="[0,4  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[4,9  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[9,13 ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[13,18]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[18,22]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[22,24]"></td>
 			</tr>
 			<tr data-week-day="7">
 				<td class="trn"></td>
 				<td class="ta-r">Воскресенье</td>
-				<td class="ta-c on"  colspan="3" data-from-to="[0,3  ]">...3</td>
-				<td class="ta-c off" colspan="4" data-from-to="[3,7  ]">3...7</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[7,12 ]">7...12</td>
-				<td class="ta-c off" colspan="4" data-from-to="[12,16]">12...16</td>
-				<td class="ta-c on"  colspan="5" data-from-to="[16,21]">16...21</td>
-				<td class="ta-c off" colspan="3" data-from-to="[21,24]">21...</td>
+				<td class="ta-c" data-state="on"  data-from-to="[0,3  ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[3,7  ]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[7,12 ]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[12,16]"></td>
+				<td class="ta-c" data-state="on"  data-from-to="[16,21]"></td>
+				<td class="ta-c" data-state="off" data-from-to="[21,24]"></td>
 			</tr>
 		</tbody>
 	</table>
 	<script type="text/javascript">
+		document.querySelectorAll("[data-state]").forEach((v,i,arr) => {
+			const 
+				[from, to] = JSON.parse(v.dataset.fromTo),
+				state = v.dataset.state,
+				len = to - from;
+			let a = from, b = to;
+			if (arr[i - 1]?.dataset.state === state) {
+				a = "";
+			}
+			if (arr[i + 1]?.dataset.state === state) {
+				b = "";
+			}
+			if (arr[0].dataset.state === arr[arr.length - 1].dataset.state) {
+				if (i === 0) {
+					a = "";
+				}
+				if (i === arr.length - 1) {
+					b = "";
+				}
+			}
+			
+			v.setAttribute("colspan", len);
+			v.textContent = `${a} - ${b}`;
+		});
 		const 
 			date = new Date(),
 			weekDay = date.getDay(),
@@ -234,7 +258,7 @@
 			hours = date.getHours();
 		const 
 			actualRow = document.querySelector(`[data-week-day="${weekDay}"`),
-			intervals = [...actualRow.querySelectorAll(".on, .off")],
+			intervals = [...actualRow.querySelectorAll("[data-state]")],
 			actualInterval = intervals.find((v) => {
 				const [from, to] = JSON.parse(v.dataset.fromTo);
 				return from <= hours && hours < to;
