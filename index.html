@@ -264,12 +264,19 @@
 				const [from, to] = JSON.parse(v.dataset.fromTo);
 				return from <= hours && hours < to;
 			});
-		// actualRow.children[1].style.fontWeight = "bold";
-		// actualRow.style.fontWeight = "bold";
-		// actualRow.children[1].style.backgroundColor = "#ff0";
+
 		actualInterval.style.backgroundColor = "#0f03";
 		actualInterval.style.fontWeight = "bold";
-		
+
+		window.addEventListener("load", (ev) => {
+			setTimeout(() => {
+				actualInterval.scrollIntoView({
+					smooth: true, 
+					block: "center",
+					inline: "center",
+				});
+			})
+		});
 	</script>
 </body>
 </html>
