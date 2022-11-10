@@ -252,24 +252,13 @@
 			v.setAttribute("colspan", len);
 			v.textContent = `${a}..${b}`;
 		});
-		const 
-			date = new Date(),
-			weekDay = date.getDay(),
-			// hours = 19;
-			hours = date.getHours();
-		const 
-			actualRow = document.querySelector(`[data-week-day="${weekDay}"`),
-			intervals = [...actualRow.querySelectorAll("[data-state]")],
-			actualInterval = intervals.find((v) => {
-				const [from, to] = JSON.parse(v.dataset.fromTo);
-				return from <= hours && hours < to;
-			});
+		
 
-		actualInterval.style.backgroundColor = "#0f03";
-		actualInterval.style.fontWeight = "bold";
+		
 
 		window.addEventListener("load", (ev) => {
 			setTimeout(() => {
+				const actualInterval = selectActualInterval();
 				actualInterval.scrollIntoView({
 					smooth: true, 
 					block: "center",
@@ -277,6 +266,26 @@
 				});
 			})
 		});
+		window.addEventListener("focus", selectActualInterval);
+
+		function selectActualInterval(ev) {
+			console.log("OK");
+			const 
+				date = new Date(),
+				weekDay = date.getDay(),
+				// hours = 19;
+				hours = date.getHours();
+			const 
+				actualRow = document.querySelector(`[data-week-day="${weekDay}"`),
+				intervals = [...actualRow.querySelectorAll("[data-state]")],
+				actualInterval = intervals.find((v) => {
+					const [from, to] = JSON.parse(v.dataset.fromTo);
+					return from <= hours && hours < to;
+				});
+			actualInterval.style.backgroundColor = "#0f03";
+			actualInterval.style.fontWeight = "bold";
+			return actualInterval;
+		}
 	</script>
 </body>
 </html>
