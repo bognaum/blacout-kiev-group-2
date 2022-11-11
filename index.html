@@ -286,7 +286,8 @@
 				v.style.backgroundColor = "";
 				v.style.fontWeight      = "";
 			});
-			actualInterval.style.backgroundColor = "#0f03";
+			actualInterval.style.backgroundColor = 
+				actualInterval.dataset.state === "off" ? "#f003" : "#0f03";
 			actualInterval.style.fontWeight = "bold";
 			return actualInterval;
 		}
