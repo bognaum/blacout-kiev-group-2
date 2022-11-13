@@ -276,7 +276,7 @@
 				// hours = 19;
 				hours = date.getHours();
 			const 
-				actualRow = document.querySelector(`[data-week-day="${weekDay}"`),
+				actualRow = document.querySelector(`[data-week-day="${weekDay}"]`),
 				intervals = [...actualRow.querySelectorAll("[data-state]")],
 				actualInterval = intervals.find((v) => {
 					const [from, to] = JSON.parse(v.dataset.fromTo);
