@@ -215,7 +215,7 @@
 				<td class="ta-c" data-state="off" data-from-to="[18,22]"></td>
 				<td class="ta-c" data-state="on"  data-from-to="[22,24]"></td>
 			</tr>
-			<tr data-week-day="0">
+			<tr data-week-day="7">
 				<td class="trn"></td>
 				<td class="ta-r">Воскресенье</td>
 				<td class="ta-c" data-state="on"  data-from-to="[0,3  ]"></td>
@@ -272,8 +272,8 @@
 			console.log("OK");
 			const 
 				date = new Date(),
-				weekDay = date.getDay(),
 				// hours = 19;
+				weekDay = date.getDay() || 7,
 				hours = date.getHours();
 			const 
 				actualRow = document.querySelector(`[data-week-day="${weekDay}"]`),
