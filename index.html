@@ -112,16 +112,19 @@
 		td[data-state] {
 			white-space: nowrap;
 		}
-		td[data-state="off"] {
-			/* background: repeating-linear-gradient(135deg, #ddd  0, #ddd 10px, transparent 10px, transparent 20px); */
-			box-shadow: inset 0 0 20px #aaa;
+		td[data-state="-"] {
+			background-color: #888;
+			color: #fff;
+		}
+		td[data-state="?"] {
+			box-shadow: inset 0 0 10px #333;
 		}
 	</style>
 	<title>Blackout Kiev Group 2</title>
 </head>
 <body>
 	<table border="" cellpadding="5" cellspacing="0">
-		<tbody>
+		<tbody id="tbody">
 			<tr>
 				<td class="ta-c" colspan="26">
 					<p>Киев. Группа - 2</p>
@@ -154,107 +157,131 @@
 				<td>22</td>
 				<td>23</td>
 			</tr>
-			<tr data-week-day="1">
-				<td class="trn"></td>
-				<td class="ta-r">Понедельник</td>
-				<td class="ta-c" data-state="off" data-from-to="[0,1  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[1,3  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[3,7  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[7,12 ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[12,16]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[16,21]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[21,24]"></td>
-			</tr>
-			<tr data-week-day="2">
-				<td class="trn"></td>
-				<td class="ta-r">Вторник</td>
-				<td class="ta-c" data-state="off" data-from-to="[0,1  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[1,6  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[6,10 ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[10,15]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[15,19]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[19,24]"></td>
-			</tr>
-			<tr data-week-day="3">
-				<td class="trn"></td>
-				<td class="ta-r">Среда</td>
-				<td class="ta-c" data-state="off" data-from-to="[0,4  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[4,9  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[9,13 ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[13,18]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[18,22]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[22,24]"></td>
-			</tr>
-			<tr data-week-day="4">
-				<td class="trn"></td>
-				<td class="ta-r">Четверг</td>
-				<td class="ta-c" data-state="on"  data-from-to="[0,3  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[3,7  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[7,12 ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[12,16]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[16,21]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[21,24]"></td>
-			</tr>
-			<tr data-week-day="5">
-				<td class="trn"></td>
-				<td class="ta-r">Пятница</td>
-				<td class="ta-c" data-state="off" data-from-to="[0,1  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[1,6  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[6,10 ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[10,15]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[15,19]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[19,24]"></td>
-			</tr>
-			<tr data-week-day="6">
-				<td class="trn"></td>
-				<td class="ta-r">Суббота</td>
-				<td class="ta-c" data-state="off" data-from-to="[0,4  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[4,9  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[9,13 ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[13,18]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[18,22]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[22,24]"></td>
-			</tr>
-			<tr data-week-day="7">
-				<td class="trn"></td>
-				<td class="ta-r">Воскресенье</td>
-				<td class="ta-c" data-state="on"  data-from-to="[0,3  ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[3,7  ]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[7,12 ]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[12,16]"></td>
-				<td class="ta-c" data-state="on"  data-from-to="[16,21]"></td>
-				<td class="ta-c" data-state="off" data-from-to="[21,24]"></td>
-			</tr>
 		</tbody>
 	</table>
 	<script type="text/javascript">
-		document.querySelectorAll("[data-state]").forEach((v,i,arr) => {
+		const 
+			switchSeq = SwitchSeq(2),
+			dayHourSeq = DayHourSeq(0),
+			dayHourModel = [ [], [], [], [], [], [], [], ];
+		for (let hour = 0; hour < 24 * 7; hour++) {
 			const 
-				[from, to] = JSON.parse(v.dataset.fromTo),
-				state = v.dataset.state,
-				len = to - from;
-			let a = from, b = to;
-			if (arr[i - 1]?.dataset.state === state) {
-				a = "";
-			}
-			if (arr[i + 1]?.dataset.state === state) {
-				b = "";
-			}
-			if (arr[0].dataset.state === arr[arr.length - 1].dataset.state) {
-				if (i === 0) {
-					a = "";
+				m = dayHourModel,
+				[d,h] = dayHourSeq.next().value,
+				status = switchSeq.next().value;
+			m[d][h] = status;
+		}
+		console.log(`dayHourModel >>`, dayHourModel);
+		const mergedModel = dayHourModel.map(day => {
+			return day.reduce((acc, v, i, a) => {
+				const current = last(acc);
+				if (current) {
+					if (current?.status === v) {
+						current.len += 1;
+						current.to += 1;
+					} else {
+						acc.push(makeIntervalModel(v, i));
+					}
+				} else {
+					acc.push(makeIntervalModel(v, 0));
 				}
-				if (i === arr.length - 1) {
-					b = "";
-				}
-			}
-			
-			v.setAttribute("colspan", len);
-			v.textContent = `${a}..${b}`;
+				return acc;
+			}, []);
 		});
-		
 
+		for (let i = 0; i < mergedModel.length; i++) {
+			const 
+				el = mergedModel[i],
+				prev = mergedModel[i - 1] || last(mergedModel),
+				next = mergedModel[i + 1] || mergedModel[0];
+			// ...
+			
+		}
+		console.log(`mergedModel >>`, mergedModel);
+
+		const dayNames = [
+			"Понедельник",
+			"Вторник",
+			"Среда",
+			"Четверг",
+			"Пятница",
+			"Суббота",
+			"Воскресенье",
+		];
+		let html = '';
+		for (const [dayI, day]of mergedModel.entries()) {
+			html += `
+				<tr data-week-day="${ dayI + 1 }">
+					<td class="trn"></td>
+					<td class="ta-r">${ dayNames[dayI] }</td>
+			`;
+			for (const [intervalI, interval]of day.entries()) {
+				html += `
+					<td
+						class="ta-c"
+						colspan="${ interval.len }"
+						data-state="${ interval.status }"
+						data-from-to="[${ interval.from }, ${ interval.to }]"
+					>${ interval.from }..${ interval.to }</td>
+				`;
+			}
+			html += `
+				</tr>
+			`;
+		}
+		tbody.innerHTML += html;
+
+		function makeIntervalModel(status, hour) {
+			return {
+				status,
+				len: 1,
+				from: hour,
+				to: hour + 1,
+			};
+		}
 		
+		function * SwitchSeq(offset=0) {
+			const seq = [
+				"+",
+				"+",
+				"?",
+				"?",
+				"?",
+				"-",
+				"-",
+				"-",
+				"-",
+			];
+			let n = 0;
+			while (true) {
+				for (const v of seq) {
+					if (n < offset) {
+						n++;
+					} else {
+						yield v;
+					}
+				}
+			}
+		}
+		function * DayHourSeq(offset=0) {
+			let n = 0;
+			while (true) {
+				for (let day = 0; day < 7; day++) {
+					for (let hour = 0; hour < 24; hour++) {
+						if (n < offset) {
+							n++;
+						} else {
+							yield [day, hour];
+						}
+					}
+				}
+			}
+		}
+		function last(array) {
+			return array[array.length - 1];
+		}
+	</script>
+	<script type="text/javascript">
 
 		window.addEventListener("load", (ev) => {
 			setTimeout(() => {
@@ -272,8 +299,8 @@
 			console.log("OK");
 			const 
 				date = new Date(),
-				// hours = 19;
 				weekDay = date.getDay() || 7,
+				// hours = 18;
 				hours = date.getHours();
 			const 
 				actualRow = document.querySelector(`[data-week-day="${weekDay}"]`),
@@ -287,7 +314,9 @@
 				v.style.fontWeight      = "";
 			});
 			actualInterval.style.backgroundColor = 
-				actualInterval.dataset.state === "off" ? "#f003" : "#0f03";
+				actualInterval.dataset.state === "-" ? "#f003" : 
+				actualInterval.dataset.state === "?" ? "#ee03" : 
+				"#0f03";
 			actualInterval.style.fontWeight = "bold";
 			return actualInterval;
 		}
