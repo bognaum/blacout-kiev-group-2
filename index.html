@@ -178,6 +178,7 @@
 				if (current) {
 					if (current?.status === v) {
 						current.len += 1;
+						current.fromTo[1] += 1;
 						current.to += 1;
 					} else {
 						acc.push(makeIntervalModel(v, i));
@@ -194,8 +195,14 @@
 				el = mergedModel[i],
 				prev = mergedModel[i - 1] || last(mergedModel),
 				next = mergedModel[i + 1] || mergedModel[0];
-			// ...
-			
+
+			if (last(prev).status === el[0].status) {
+				last(prev).to = el[0].from = "";
+			} else {}
+				
+			if (last(el).status === next[0].status) {
+				last(el).to = next[0].from = "";
+			} else {}
 		}
 		console.log(`mergedModel >>`, mergedModel);
 
@@ -221,7 +228,7 @@
 						class="ta-c"
 						colspan="${ interval.len }"
 						data-state="${ interval.status }"
-						data-from-to="[${ interval.from }, ${ interval.to }]"
+						data-from-to="[${ interval.fromTo.toString() }]"
 					>${ interval.from }..${ interval.to }</td>
 				`;
 			}
@@ -235,6 +242,7 @@
 			return {
 				status,
 				len: 1,
+				fromTo: [hour, hour + 1],
 				from: hour,
 				to: hour + 1,
 			};
