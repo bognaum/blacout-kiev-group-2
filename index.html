@@ -105,6 +105,7 @@
 		}
 		table {
 			margin: auto;
+			--dark-bg: #ccc;
 		}
 		td {
 			/* background-color: #eee; */
@@ -112,13 +113,25 @@
 		td[data-state] {
 			white-space: nowrap;
 		}
+		td[data-state="+"] {
+			background-color: #fff;
+		}
 		td[data-state="-"] {
-			background-color: #888;
-			color: #fff;
+			background-color: var(--dark-bg);
+			/* background-color: #aaa; */
+			/* color: #fff; */
 		}
 		td[data-state="?"] {
-			box-shadow: inset 0 0 10px #333;
-			text-shadow: 0 0 5px #333;
+			/* background: linear-gradient(135deg, #fff 0, #fff 50%, var(--dark-bg) 50%, var(--dark-bg) 100%); */
+			background: linear-gradient(90deg, #fff 0, #fff 40%, var(--dark-bg) 60%, var(--dark-bg) 100%);
+			/* background: linear-gradient(90deg, #fff 0, #fff 20%, var(--dark-bg) 80%, var(--dark-bg) 100%); */
+			/* background: linear-gradient(90deg, #fff 0, var(--dark-bg) 40%,  var(--dark-bg) 60%, #fff 100%); */
+		}
+		td[data-state].actual-interval {
+			border: 2px solid #f00;
+			transform: scale(1.1);
+			padding: 0;
+			font-weight: bold;
 		}
 	</style>
 	<title>Blackout Kiev Group 2</title>
@@ -307,9 +320,10 @@
 		function selectActualInterval(ev) {
 			console.log("OK");
 			const 
+				ACTUAL_INTERVAL_C_N = "actual-interval",
 				date = new Date(),
 				weekDay = date.getDay() || 7,
-				// hours = 18;
+				// hours = 13;
 				hours = date.getHours();
 			const 
 				actualRow = document.querySelector(`[data-week-day="${weekDay}"]`),
@@ -318,15 +332,10 @@
 					const [from, to] = JSON.parse(v.dataset.fromTo);
 					return from <= hours && hours < to;
 				});
-			document.querySelectorAll("[data-state]").forEach((v) => {
-				v.style.backgroundColor = "";
-				v.style.fontWeight      = "";
+			document.querySelectorAll("."+ACTUAL_INTERVAL_C_N).forEach((v) => {
+				v.classList.remove(ACTUAL_INTERVAL_C_N);
 			});
-			actualInterval.style.backgroundColor = 
-				actualInterval.dataset.state === "-" ? "#900" : 
-				actualInterval.dataset.state === "?" ? "#eea" : 
-				"#bfb";
-			actualInterval.style.fontWeight = "bold";
+			actualInterval.classList.add(ACTUAL_INTERVAL_C_N);
 			return actualInterval;
 		}
 	</script>
