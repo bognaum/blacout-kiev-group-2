@@ -110,6 +110,10 @@
 		td {
 			/* background-color: #eee; */
 		}
+		td.nour-number {
+			text-align: center;
+			min-width: 20px;
+		}
 		td[data-state] {
 			white-space: nowrap;
 		}
@@ -143,33 +147,6 @@
 				<td class="ta-c" colspan="26">
 					<p>Киев. Группа - 2</p>
 				</td>
-			</tr>
-			<tr>
-				<td colspan="2"></td>
-				<td>00</td>
-				<td>01</td>
-				<td>02</td>
-				<td>03</td>
-				<td>04</td>
-				<td>05</td>
-				<td>06</td>
-				<td>07</td>
-				<td>08</td>
-				<td>09</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>16</td>
-				<td>17</td>
-				<td>18</td>
-				<td>19</td>
-				<td>20</td>
-				<td>21</td>
-				<td>22</td>
-				<td>23</td>
 			</tr>
 		</tbody>
 	</table>
@@ -230,6 +207,10 @@
 			"Воскресенье",
 		];
 		let html = '';
+		html += `<td colspan="2"></td>`;
+		for (let i = 0; i < 24; i++) {
+			html += `<td class="nour-number">${ i }</td>`;
+		}
 		for (const [dayI, day]of mergedModel.entries()) {
 			html += `
 				<tr data-week-day="${ dayI + 1 }">
