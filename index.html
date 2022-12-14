@@ -144,87 +144,98 @@
 		</tbody>
 	</table>
 	<script type="text/javascript">
-		const 
-			onOffSeq = OnOffSeq(2),
-			dayHourSeq = DayHourSeq(0),
-			dayHourModel = [ [], [], [], [], [], [], [], ];
-		for (let hour = 0; hour < 24 * 7; hour++) {
+		
+		tbody.innerHTML += generateHtml(2, 0);
+
+		function generateHtml(onOffOffset=0, dayHourOffset=0) {
 			const 
-				m = dayHourModel,
-				[d,h] = dayHourSeq.next().value,
-				status = onOffSeq.next().value;
-			m[d][h] = status;
-		}
-		console.log(`dayHourModel >>`, dayHourModel);
-		const mergedModel = dayHourModel.map(day => {
-			return day.reduce((acc, v, i, a) => {
-				const current = last(acc);
-				if (current) {
-					if (current?.status === v) {
-						current.len += 1;
-						current.fromTo[1] += 1;
-						current.to += 1;
+				onOffSeq = OnOffSeq(onOffOffset),
+				dayHourSeq = DayHourSeq(dayHourOffset),
+				dayHourModel = [ [], [], [], [], [], [], [], ],
+				dayNames = [
+					"Понедельник",
+					"Вторник",
+					"Среда",
+					"Четверг",
+					"Пятница",
+					"Суббота",
+					"Воскресенье",
+				];
+			let html = '';
+
+			// Создаём почасовую модель на неделю:
+			for (let hour = 0; hour < 24 * 7; hour++) {
+				const 
+					m = dayHourModel,
+					[d,h] = dayHourSeq.next().value,
+					status = onOffSeq.next().value;
+				m[d][h] = status;
+			}
+
+			// Объединяем часы с одинаковым статусом в интервалы:
+			const mergedModel = dayHourModel.map(day => {
+				return day.reduce((acc, v, i, a) => {
+					const current = last(acc);
+					if (current) {
+						if (current?.status === v) {
+							current.len += 1;
+							current.fromTo[1] += 1;
+							current.to += 1;
+						} else {
+							acc.push(makeIntervalModel(v, i));
+						}
 					} else {
-						acc.push(makeIntervalModel(v, i));
+						acc.push(makeIntervalModel(v, 0));
 					}
-				} else {
-					acc.push(makeIntervalModel(v, 0));
-				}
-				return acc;
-			}, []);
-		});
+					return acc;
+				}, []);
+			});
+			
+			for (let i = 0; i < mergedModel.length; i++) {
+				const 
+					el = mergedModel[i],
+					prev = mergedModel[i - 1] || last(mergedModel),
+					next = mergedModel[i + 1] || mergedModel[0];
+			
+				if (last(prev).status === el[0].status) {
+					last(prev).to = el[0].from = "";
+				} else {}
+					
+				if (last(el).status === next[0].status) {
+					last(el).to = next[0].from = "";
+				} else {}
+			}
+			
+			// Создаём ряд с нумерацией часов:
+			html += `<td colspan="2"></td>`;
+			for (let i = 0; i < 24; i++) {
+				html += `<td class="hour-number">${ i }</td>`;
+			}
 
-		for (let i = 0; i < mergedModel.length; i++) {
-			const 
-				el = mergedModel[i],
-				prev = mergedModel[i - 1] || last(mergedModel),
-				next = mergedModel[i + 1] || mergedModel[0];
-
-			if (last(prev).status === el[0].status) {
-				last(prev).to = el[0].from = "";
-			} else {}
-				
-			if (last(el).status === next[0].status) {
-				last(el).to = next[0].from = "";
-			} else {}
-		}
-		console.log(`mergedModel >>`, mergedModel);
-
-		const dayNames = [
-			"Понедельник",
-			"Вторник",
-			"Среда",
-			"Четверг",
-			"Пятница",
-			"Суббота",
-			"Воскресенье",
-		];
-		let html = '';
-		html += `<td colspan="2"></td>`;
-		for (let i = 0; i < 24; i++) {
-			html += `<td class="hour-number">${ i }</td>`;
-		}
-		for (const [dayI, day]of mergedModel.entries()) {
-			html += `
-				<tr data-week-day="${ dayI + 1 }">
-					<td class="trn"></td>
-					<td class="ta-r">${ dayNames[dayI] }</td>
-			`;
-			for (const [intervalI, interval]of day.entries()) {
+			// создаём ряды, соответствующие дням недели:
+			for (const [dayI, day]of mergedModel.entries()) {
 				html += `
-					<td
-						class="ta-c"
-						colspan="${ interval.len }"
-						data-state="${ interval.status }"
-						data-from-to="[${ interval.fromTo.toString() }]"
-					>${ interval.from }..${ interval.to }</td>
+					<tr data-week-day="${ dayI + 1 }">
+						<td class="trn"></td>
+						<td class="ta-r">${ dayNames[dayI] }</td>
+				`;
+				for (const [intervalI, interval]of day.entries()) {
+					html += `
+						<td
+							class="ta-c"
+							colspan="${ interval.len }"
+							data-state="${ interval.status }"
+							data-from-to="[${ interval.fromTo.toString() }]"
+						>${ interval.from }..${ interval.to }</td>
+					`;
+				}
+				html += `
+					</tr>
 				`;
 			}
-			html += `
-				</tr>
-			`;
+			
+			return html;
 		}
-		tbody.innerHTML += html;
 
 		function makeIntervalModel(status, hour) {
 			return {
