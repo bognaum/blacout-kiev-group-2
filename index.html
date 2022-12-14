@@ -107,9 +107,7 @@
 			margin: auto;
 			--dark-bg: #ccc;
 		}
-		td {
-			/* background-color: #eee; */
-		}
+		td {}
 		td.hour-number {
 			text-align: center;
 			min-width: 20px;
@@ -122,14 +120,9 @@
 		}
 		td[data-state="-"] {
 			background-color: var(--dark-bg);
-			/* background-color: #aaa; */
-			/* color: #fff; */
 		}
 		td[data-state="?"] {
-			/* background: linear-gradient(135deg, #fff 0, #fff 50%, var(--dark-bg) 50%, var(--dark-bg) 100%); */
 			background: linear-gradient(90deg, #fff 0, #fff 40%, var(--dark-bg) 60%, var(--dark-bg) 100%);
-			/* background: linear-gradient(90deg, #fff 0, #fff 20%, var(--dark-bg) 80%, var(--dark-bg) 100%); */
-			/* background: linear-gradient(90deg, #fff 0, var(--dark-bg) 40%,  var(--dark-bg) 60%, #fff 100%); */
 		}
 		td[data-state].actual-interval {
 			border: 4px solid #f00;
@@ -152,14 +145,14 @@
 	</table>
 	<script type="text/javascript">
 		const 
-			switchSeq = SwitchSeq(2),
+			onOffSeq = OnOffSeq(2),
 			dayHourSeq = DayHourSeq(0),
 			dayHourModel = [ [], [], [], [], [], [], [], ];
 		for (let hour = 0; hour < 24 * 7; hour++) {
 			const 
 				m = dayHourModel,
 				[d,h] = dayHourSeq.next().value,
-				status = switchSeq.next().value;
+				status = onOffSeq.next().value;
 			m[d][h] = status;
 		}
 		console.log(`dayHourModel >>`, dayHourModel);
@@ -243,7 +236,7 @@
 			};
 		}
 		
-		function * SwitchSeq(offset=0) {
+		function * OnOffSeq(offset=0) {
 			const seq = [
 				"+",
 				"+",
