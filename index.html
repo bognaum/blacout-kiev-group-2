@@ -110,7 +110,7 @@
 		td {
 			/* background-color: #eee; */
 		}
-		td.nour-number {
+		td.hour-number {
 			text-align: center;
 			min-width: 20px;
 		}
@@ -209,7 +209,7 @@
 		let html = '';
 		html += `<td colspan="2"></td>`;
 		for (let i = 0; i < 24; i++) {
-			html += `<td class="nour-number">${ i }</td>`;
+			html += `<td class="hour-number">${ i }</td>`;
 		}
 		for (const [dayI, day]of mergedModel.entries()) {
 			html += `
